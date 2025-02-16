@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="login.css" />
+    <title>TAMAM Login Page | AsmrProg</title>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <!-- Sign Up Form -->
+      <div class="form-container sign-up">
+        <form>
+          <h1>Create Account</h1>
+          <div class="social-icons">
+            <a href="#" class="icon"
+              ><i class="fa-brands fa-google-plus-g"></i
+            ></a>
+            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="icon"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+          </div>
+          <span>or use your email for registration</span>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <button class="btn" type="button" id="signup-btn">Sign Up</button>
+        </form>
+      </div>
+
+      <!-- Sign In Form -->
+      <div class="form-container sign-in">
+        <form>
+          <h1>Sign In</h1>
+          <div class="social-icons">
+            <a href="#" class="icon"
+              ><i class="fa-brands fa-google-plus-g"></i
+            ></a>
+            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="icon"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+          </div>
+          <span>or use your email and password</span>
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <a href="#">Forget Your Password?</a>
+          <button class="btn" type="button" id="signin-btn">Sign In</button>
+        </form>
+      </div>
+
+      <!-- Toggle Container (Optional Additional Buttons) -->
+      <div class="toggle-container">
+        <div class="toggle">
+          <div class="toggle-panel toggle-left">
+            <h1>Welcome Back!</h1>
+            <p>Enter your personal details to use all of site features</p>
+            <button id="login-btn">Login</button>
+          </div>
+          <div class="toggle-panel toggle-right">
+            <h1>Hello, Friend!</h1>
+            <p>
+              Register with your personal details to use all of site features
+            </p>
+            <button class="hidden" id="register">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inline Script -->
+    <script src="script.js"></script>
+    <script>
+      // Start the server
+
+      document
+        .getElementById("signup-btn")
+        .addEventListener("click", function () {
+          window.location.href = "home.html";
+        });
+
+      // This function should be replaced with your actual validation logic.
+      function validateCredentials() {
+        // For demonstration, we'll always return true.
+        return true;
+      }
+
+      // This function redirects the user to index.html if validation passes.
+      function redirectToIndex() {
+        if (validateCredentials()) {
+          window.location.href = "index-home.html";
+        } else {
+          alert("Validation failed. Please try again.");
+        }
+      }
+
+      // Attach event listeners once the DOM is fully loaded.
+      document.addEventListener("DOMContentLoaded", function () {
+        // Retrieve the buttons by their IDs.
+        const loginBtn = document.getElementById("login-btn");
+        const signupBtn = document.getElementById("signup-btn");
+        const signinBtn = document.getElementById("signin-btn");
+
+        // Attach the click event listeners if the elements exist.
+        if (loginBtn) {
+          loginBtn.addEventListener("click", redirectToIndex);
+        }
+        if (signupBtn) {
+          signupBtn.addEventListener("click", redirectToIndex);
+        }
+        if (signinBtn) {
+          signinBtn.addEventListener("click", redirectToIndex);
+        }
+      });
+    </script>
+  </body>
+</html>
